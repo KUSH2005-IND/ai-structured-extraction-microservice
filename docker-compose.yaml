@@ -1,0 +1,12 @@
+services:
+  ai-extraction-service:
+    build: .
+    container_name: ai_extraction_api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Persists SQLite database file on your local machine across container restarts
+      - .:/app
+    restart: unless-stopped
